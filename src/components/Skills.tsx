@@ -1,4 +1,4 @@
-import { Code2, Brain, BarChart3, Loader } from "lucide-react";
+import { Code2, Brain, BarChart3, Loader, Sparkles } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const Skills = () => {
@@ -32,11 +32,19 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 lg:py-32 gradient-subtle">
-      <div className="container mx-auto px-4">
+    <section id="skills" className="relative py-20 lg:py-32 overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 gradient-subtle"></div>
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Section Header */}
-          <div className="text-center space-y-4">
+          <div className="text-center space-y-4 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/80 backdrop-blur-md border border-primary/20 mb-4">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium">My Expertise</span>
+            </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold">
               My <span className="text-primary">Skills</span>
             </h2>
@@ -51,7 +59,8 @@ const Skills = () => {
             {primarySkills.map((skill, index) => (
               <Card
                 key={index}
-                className="p-6 md:p-8 shadow-card hover:shadow-elegant transition-smooth border-none bg-card group cursor-pointer"
+                className="p-6 md:p-8 shadow-elegant hover:shadow-glow transition-smooth border-none bg-card/80 backdrop-blur-md group cursor-pointer animate-fade-in-up"
+                style={{ animationDelay: `${0.1 + index * 0.1}s` }}
               >
                 <div className="space-y-6">
                   <div className="p-4 rounded-2xl gradient-primary w-fit group-hover:scale-110 transition-spring">
@@ -81,7 +90,7 @@ const Skills = () => {
           </div>
 
           {/* Learning in Progress */}
-          <Card className="p-6 md:p-8 shadow-card border-none bg-card">
+          <Card className="p-6 md:p-8 shadow-elegant border-none bg-card/80 backdrop-blur-md animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
             <div className="flex items-start gap-4">
               <div className="p-3 rounded-xl bg-secondary">
                 <Loader className="w-6 h-6 text-secondary-foreground animate-spin" />

@@ -21,11 +21,19 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 lg:py-32 gradient-subtle">
-      <div className="container mx-auto px-4">
+    <section id="services" className="relative py-20 lg:py-32 overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 gradient-subtle"></div>
+      <div className="absolute top-20 right-10 w-96 h-96 bg-primary-glow/10 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Section Header */}
-          <div className="text-center space-y-4">
+          <div className="text-center space-y-4 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/80 backdrop-blur-md border border-primary/20 mb-4">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium">What I Offer</span>
+            </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold">
               Future <span className="text-primary">Services</span>
             </h2>
@@ -40,7 +48,8 @@ const Services = () => {
             {futureServices.map((service, index) => (
               <Card
                 key={index}
-                className="p-6 md:p-8 shadow-card hover:shadow-elegant transition-smooth border-none bg-card group cursor-pointer relative overflow-hidden"
+                className="p-6 md:p-8 shadow-elegant hover:shadow-glow transition-smooth border-none bg-card/80 backdrop-blur-md group cursor-pointer relative overflow-hidden animate-fade-in-up"
+                style={{ animationDelay: `${0.1 + index * 0.1}s` }}
               >
                 <div className="absolute top-0 right-0 px-3 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-bl-lg">
                   Coming Soon
@@ -61,8 +70,8 @@ const Services = () => {
           </div>
 
           {/* CTA Message */}
-          <div className="text-center">
-            <Card className="inline-block p-8 shadow-elegant border-none gradient-primary text-primary-foreground">
+          <div className="text-center animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+            <Card className="inline-block p-8 shadow-glow border-none gradient-primary text-primary-foreground">
               <div className="space-y-4">
                 <h3 className="text-2xl font-display font-bold">Interested in collaboration?</h3>
                 <p className="text-primary-foreground/90 max-w-lg">

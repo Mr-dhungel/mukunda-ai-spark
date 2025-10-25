@@ -1,13 +1,21 @@
-import { GraduationCap, Briefcase } from "lucide-react";
+import { GraduationCap, Briefcase, Sparkles } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const About = () => {
   return (
-    <section id="about" className="py-20 lg:py-32">
-      <div className="container mx-auto px-4">
+    <section id="about" className="relative py-20 lg:py-32 overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background"></div>
+      <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto space-y-12">
           {/* Section Header */}
-          <div className="text-center space-y-4">
+          <div className="text-center space-y-4 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/80 backdrop-blur-md border border-primary/20 mb-4">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium">Get to know me</span>
+            </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold">
               About <span className="text-primary">Me</span>
             </h2>
@@ -15,7 +23,7 @@ const About = () => {
           </div>
 
           {/* Bio */}
-          <Card className="p-6 md:p-8 shadow-card hover:shadow-elegant transition-smooth border-none bg-card">
+          <Card className="p-6 md:p-8 shadow-elegant hover:shadow-glow transition-smooth border-none bg-card/80 backdrop-blur-md animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
             <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
               I'm <span className="font-semibold text-primary">Mukunda Dhungel</span>, a passionate AI/ML enthusiast with a creative spark for problem-solving and innovation. I love exploring how technology can make life smarter and simpler. Alongside AI, I enjoy diving into web development and data analysis, constantly learning and experimenting with new ideas to bring them to life.
             </p>
@@ -24,7 +32,7 @@ const About = () => {
           {/* Education & Experience Grid */}
           <div className="grid md:grid-cols-2 gap-6">
             {/* Education */}
-            <Card className="p-6 md:p-8 shadow-card hover:shadow-elegant transition-smooth border-none bg-card group">
+            <Card className="p-6 md:p-8 shadow-elegant hover:shadow-glow transition-smooth border-none bg-card/80 backdrop-blur-md group animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-xl gradient-primary group-hover:scale-110 transition-spring">
                   <GraduationCap className="w-6 h-6 text-primary-foreground" />
@@ -45,7 +53,7 @@ const About = () => {
             </Card>
 
             {/* Work Experience */}
-            <Card className="p-6 md:p-8 shadow-card hover:shadow-elegant transition-smooth border-none bg-card group">
+            <Card className="p-6 md:p-8 shadow-elegant hover:shadow-glow transition-smooth border-none bg-card/80 backdrop-blur-md group animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-xl gradient-primary group-hover:scale-110 transition-spring">
                   <Briefcase className="w-6 h-6 text-primary-foreground" />
